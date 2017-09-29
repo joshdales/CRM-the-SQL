@@ -90,9 +90,11 @@ class CRM
   end
 
   def search_by_attribute
-    print "Enter for value you want to search for: "
+    print "Enter the attribute you want to search: "
+    user_key = gets.chomp
+    print "Enter the value you want to search for: "
     user_value = gets.chomp
-    Contact.find_by(user_value)
+    puts Contact.find_by(user_key => user_value).inspect
   end
 
 
