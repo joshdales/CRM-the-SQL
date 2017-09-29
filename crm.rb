@@ -1,4 +1,4 @@
-require "./contact.rb"
+require_relative "contact"
 
 class CRM
 
@@ -73,8 +73,11 @@ class CRM
     print "Enter id of contact you wish to delete: "
     user_id = gets.chomp.to_i
     contact = Contact.find(user_id)
-
-    contact.delete
+    puts "Are you sure you want to delete?"
+    confirm = gets.chomp
+    if confirm == "yes"
+      contact.delete
+    else end
   end
 
   def display_all_contacts
@@ -92,3 +95,6 @@ end
 
 a_crm_app = CRM.new
 a_crm_app.main_menu
+at_exit do
+  ActiveRecord::Base.connection.close
+end
