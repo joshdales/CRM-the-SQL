@@ -70,7 +70,7 @@ class CRM
     print 'Enter new attribute: '
     new_value = gets.chomp
 
-    contact.update(original_value, new_value)
+    contact.update(original_value => new_value)
     puts "Updated contact: #{contact.full_name}"
   end
 
@@ -96,8 +96,6 @@ class CRM
     user_value = gets.chomp
     puts Contact.find_by(user_key => user_value).inspect
   end
-
-
 end
 
 a_crm_app = CRM.new
